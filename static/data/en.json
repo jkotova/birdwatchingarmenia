@@ -1,0 +1,48 @@
+{
+  "title": "Birdwatching in Armenia",
+  "title_location": "About hotspots",
+  "title_species": "About species",
+  "title_top_locations": "Popular hotspots",
+  "title_dataset": "About the dataset",
+  "title_species_popular": "All species",
+  "title_project": "About project",
+  "about_birdwatching": {
+    "about": "<p>Birdwatching is&nbsp;the observation of&nbsp;birds in&nbsp;their natural habitat. Birdwatchers identify birds, study their behavior, and their habitats. </p> <p>The research uses data from <a href=\"https://ebird.org/\" target=\"_blank\">ebird.org</a> from January 2018 to&nbsp;January 2025.</p>",
+    "records": "entries",
+    "hotspots": "hotspots",
+    "distance": "the longest distance",
+    "species": "species reported",
+    "km": "km",
+    "p2": "<p> Each <strong>entry in the database</strong> represents one species observed by one birdwatcher during a single walk.</p>",
+    "p3": "<p>The graph shows the dynamic development of&nbsp;birdwatching in&nbsp;Armenia. The dip in&nbsp;2020, in&nbsp;addition to&nbsp;the reduction in&nbsp;trips by&nbsp;the local population, may be&nbsp;caused by&nbsp;the closure of&nbsp;borders worldwide and the absence of&nbsp;international birdwatchers traveling in&nbsp;the country. This indirectly suggests that a&nbsp;significant portion of&nbsp;birdwatchers consists of&nbsp;foreign groups.</p>",
+    "p4": "<p>In&nbsp;2020, there was a&nbsp;noticeable decline in&nbsp;the number of&nbsp;observed species. This may indicate that birdwatchers limited the geographic scope of&nbsp;their trips during the pandemic. For instance, they observed more birds in&nbsp;cities near their place of&nbsp;residence rather than going on&nbsp;long trips.</p>",
+    "p5": "<p>The largest number of&nbsp;observations falls in&nbsp;May. This is&nbsp;the peak time for bird arrivals. Most bird species become noticeable and actively sing.</p>"
+  },
+  "about_locations": "<p>Thanks to&nbsp;its diverse landscapes&mdash;from mountains and forests to&nbsp;steppes and lakes&mdash;the country is&nbsp;home to&nbsp;many bird species.</p> <p>The Armash Fishponds are a&nbsp;key location for birdwatchers. There are over 12,000 birdwatcher entries on&nbsp;ebird.org from this site. In&nbsp;addition to&nbsp;its picturesque views (including Mount Ararat), you can find over 200 bird species here, ranging from common gulls to&nbsp;vultures and pink flamingos.</p> <p> The Norashen Reserve is&nbsp;called the Island of&nbsp;Gulls. Here, you can see the Armenian, Caspian, and Mediterranean gulls, among others. The reserve is&nbsp;located on&nbsp;the shores of&nbsp;Lake Sevan.</p> <p>Mount Aragats is&nbsp;the highest mountain range in&nbsp;Armenia. You can encounter various species of&nbsp;larks, buntings, and redstarts, as&nbsp;well as&nbsp;birds of&nbsp;prey like the griffon vulture and the eagle.</p> <p>One of&nbsp;the most beautiful tourist spots, the Noravank Monastery, is&nbsp;also a&nbsp;popular birdwatching site. This ancient complex, built between the 13th and 15th centuries, is&nbsp;surrounded by&nbsp;red cliffs. Here, you can find the golden eagle, several species of&nbsp;vultures, storks, falcons, and other birds. The Noravank area is&nbsp;also listed as&nbsp;an <a   href=\"https://en.wikipedia.org/wiki/Noravank_Important_Bird_Area\"   target=\"_blank\" > important bird conservation area</a>. </p> <p>hese and other hotspots can be&nbsp;explored on&nbsp;the map below.</p>",
+  "about_species": "<p>Located at&nbsp;the crossroads of&nbsp;East and West, Armenia boasts a&nbsp;rich diversity of&nbsp;fauna, including over <a   href=\"https://ru.wikipedia.org/wiki/%D0%9F%D1%82%D0%B8%D1%86%D1%8B_%D0%90%D1%80%D0%BC%D0%B5%D0%BD%D0%B8%D0%B8\"   target=\"_blank\" >300 bird species</a>. You can find one-third of&nbsp;the bird species that inhabit Europe here.</p> <p>Among the birds of&nbsp;prey in&nbsp;Armenia, you can find the steppe eagle and the Caucasian goshawk, among others. They predominantly inhabit mountainous regions.</p> <p>The rare Caucasian grouse lives in&nbsp;high-altitude forests and alpine meadows. The Bearded vulture, typical of&nbsp;rocky areas, has a&nbsp;large wingspan and plays an&nbsp;important role in&nbsp;the ecosystem as&nbsp;a&nbsp;scavenger.</p> <p>You can spot flamingos at&nbsp;Lake Sevan. They stop here during their migration.</p> <p>The bird species encountered in&nbsp;Armenia and captured by&nbsp;the lenses and eyes of&nbsp;birdwatchers can be&nbsp;explored below.</p>",
+  "about_dataset": "<p>Birdwatchers can enter data about their observations into the <a href=\"https://ebird.org/\" target=\"_blank\">ebird.org  </a> ebird.org project database in the form of <a    href=\"https://ebird.org/checklist/S211802412?_gl=1*p1xndj*_gcl_au*NjE3OTIwOTUzLjE3MzgwNzc3Njk.*_ga*MTcwNzIxMjg2OC4xNzM4MDc3NzY5*_ga_QR4NVXZ8BM*MTczOTE3MTI3NS4xNi4xLjE3MzkxNzM1NjEuNDQuMC4w&_ga=2.41902305.218212582.1739171275-1707212868.1738077769\"    target=\"_blank\">checklists</a> . Users note information about the location, time, number of birds seen, and their species.  </p>   <p> he project was created and is maintained by the <a href=\"https://www.birds.cornell.edu/home/\" target=\"_blank\">    Cornell Lab of&nbsp;Ornithology  </a> at Cornell University. It was launched in 2002 and has since become one of the largest and most popular bird observation databases.</p>   <p>The project's data is open. However, for security reasons, records of species requiring <a    href=\"https://support.ebird.org/en/support/solutions/articles/48000803210-sensitive-species-in-ebird\"    target=\"_blank\"  >special protection</a>  are not included in the open datasets.</p>",
+  "location": {
+    "selected": "Selected hotspot",
+    "coords": "Coordinates",
+    "records": "Number of observations",
+    "species": "Number of observed species",
+    "link": "More about the hotspot at",
+    "species_list": "Species that can be seen here"
+  },
+  "charts": {
+    "records": "Number of entries in the database",
+    "time": "Number of entries by month",
+    "species": "Number of species observed by birdwatchers"
+  },
+  "icons": {
+    "time": "Last viewed",
+    "amount": "Total viewd"
+  },
+  "species": {
+    "map": "Species distribution map",
+    "sound": "Sound",
+    "chart": "Records amount"
+  },
+  "project": "<p>Stack:</p><ul><li>Python, <a href=\"https://pandas.pydata.org/\" target=\"_blank\">pandas</a>&mdash; data analysis</li> <li>Javascript, <a href=\"https://react.dev/\" target=\"_blank\">React</a>&mdash; web interface development</li> <li><a href=\"https://www.mapbox.com/\" target=\"_blank\">Mapbox</a>&mdash; map service</li> <li><a href=\"https://plotly.com/javascript/\" target=\"_blank\">Plotly Javascript</a>&mdash; the chart library</li></ul>",
+  "name": "en"
+}

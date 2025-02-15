@@ -1,0 +1,141 @@
+.species h3 {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 0 20px;
+}
+
+.species h3 span {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.species_photo {
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+.species_photo .no_photo {
+  max-width: 300px;
+}
+
+.species .list {
+  width: 48%;
+  font-size: 16px;
+}
+
+.species {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.species .list {
+  width: 50%;
+  max-height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0 1.5em 0 0.5em;
+  margin-right: 1em;
+}
+
+.species .list::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+  background-color: #b1b3a320;
+  border-radius: 5px;
+}
+
+.species .list::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(61, 141, 122, 0.7);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.species .species_description {
+  width: 50%;
+  margin-bottom: 2em;
+}
+
+@media (width >= 1000px) {
+  .species .list {
+    width: 25%;
+  }
+
+  .species .species_description {
+    width: 75%;
+  }
+}
+
+.species_description h3 span {
+  display: block;
+  font-size: 0.8em;
+}
+
+.species_container {
+  position: relative;
+}
+
+.species_media {
+  position: relative;
+}
+
+.species_sound {
+  margin-bottom: 2em;
+}
+
+.species_map {
+  padding-top: 2em;
+}
+
+@media (width >= 1000px) {
+  .species_container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .species_media {
+    width: 65%;
+  }
+  .species_map {
+    width: 35%;
+    padding-left: 1em;
+    padding-top: 0;
+  }
+}
+
+.species_row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.species_media h3 {
+  font-size: 22px;
+}
+
+.species_row .description {
+  width: 50%;
+  padding-right: 1em;
+}
+
+.species_row .list {
+  width: 50%;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.species_row .list::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5px;
+  background-color: #b1b3a320;
+  border-radius: 5px;
+}
+
+.species_row .list::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(61, 141, 122, 0.7);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.species_plot {
+  margin-bottom: 2em;
+}
