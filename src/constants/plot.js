@@ -7,16 +7,13 @@ export const plotLayout = {
     l: 30,
     r: 20,
   },
-  title: {
-    font: {
-      //family: "serif",
-    },
-  },
   font: {
     family: "EB Garamond, serif",
     size: 15,
     color: "#7f7f7f",
   },
+  showgrid: false,
+  hole: 0.2,
 };
 
 export const plotConfig = {
@@ -26,4 +23,10 @@ export const plotConfig = {
 export const plotStyle = {
   width: "100%",
   height: 300,
+};
+
+export const plotColors = {
+  marker: {
+    color: "rgba(163, 209, 198, .7)",
+  },
 };

@@ -1,10 +1,10 @@
 import * as React from "react";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import type { CircleLayerSpecification } from "react-map-gl/mapbox";
 import Map, { Source, Layer } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useDispatch, useSelector } from "react-redux";
-import { set_location } from "./../core/features.js";
+import { set_location } from "../core/features.ts";
 import about_locations from "./../../static/data/species_by_locations.json";
 
 const circleLayerStyle: CircleLayerSpecification = {
@@ -149,74 +149,6 @@ export const Mapbox = ({ locations, height }) => {
           <Layer {...selectedCircleLayerStyle} />
         </Source>
       </Map>
-      {/* <div className="map_legend">
-        <span></span>
-        <span
-          style={{
-            width: "20px",
-            height: "20px",
-            backgroundColor: "#a8d3bc",
-            borderColor: "#82b298",
-          }}
-        ></span>
-        <span
-          style={{
-            width: "25px",
-            height: "25px",
-            backgroundColor: "#aed6b2",
-            borderColor: "#80ac85",
-          }}
-        ></span>
-        <span
-          style={{
-            width: "30px",
-            height: "30px",
-            backgroundColor: "#a8d3bc",
-            borderColor: "#82b298",
-          }}
-        ></span>
-        <span
-          style={{
-            width: "30px",
-            height: "30px",
-            backgroundColor: "#B3D8A8",
-            borderColor: "#7da671",
-          }}
-        ></span>
-        <span
-          style={{
-            width: "40px",
-            height: "40px",
-            backgroundColor: "#8cbf99",
-            borderColor: "#608d66",
-          }}
-        ></span>
-        <span
-          style={{
-            width: "50px",
-            height: "50px",
-            backgroundColor: "#64a689",
-            borderColor: "#42755a",
-          }}
-        ></span>
-        <span
-          style={{
-            width: "60px",
-            height: "60px",
-            backgroundColor: "#3D8D7A",
-            borderColor: "#255c4f",
-          }}
-        ></span>
-        <span
-          style={{
-            width: "40px",
-            height: "40px",
-            backgroundColor: "#FBFFE4",
-            borderColor: "#255c4f",
-            borderWidth: "3px",
-          }}
-        ></span>
-      </div> */}
     </>
   );
 };

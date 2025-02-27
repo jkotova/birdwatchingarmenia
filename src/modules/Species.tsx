@@ -1,4 +1,3 @@
-import * as React from "react";
 import Plot from "react-plotly.js";
 import about_species from "./../../static/data/about_species.json";
 import noPhoto from "./../../static/img/no_photo.jpg";
@@ -7,13 +6,12 @@ import species_by_popularity from "./../../static/data/species_by_popularity.jso
 import { FrameWrapper } from "./FrameWrapper.js";
 import { MapboxSpecies } from "./MapboxSpecies";
 import { plotConfig, plotLayout, plotStyle } from "./../constants/plot.js";
-import { set_species } from "./../core/features.js";
+import { set_species } from "../core/features.ts";
 import { useSelector, useDispatch } from "react-redux";
-import parse from "html-react-parser";
 import "./Species.css";
 
 export const Species = () => {
-  const lang = useSelector((state) => state.general.lang);
+  const text = useSelector((state) => state.general.lang);
   const species = useSelector((state) => state.general.species);
   const dispatch = useDispatch();
 
@@ -23,22 +21,21 @@ export const Species = () => {
 
   return (
     <>
-      {/* <div className="species_row">
-        <div className="description">{parse(lang.about_species)}</div>
-      </div> */}
-
       <div className="species">
         <div className="list">
-          {/* <h4 className="list_header">{lang["title_species_popular"]}</h4> */}
           {Object.keys(species_by_popularity).map((key) => (
             <div
-              className="locations_table_item"
+              key={key}
+              className={
+                "locations_table_item" +
+                (key == species ? " locations_table_item--selected" : "")
+              }
               onClick={() => {
                 selectSpecies(species_by_popularity[key]);
               }}
             >
               <div>
-                {lang.name == "en"
+                {text.name == "en"
                   ? species_by_popularity[key]["common_name"]
                   : about_species[key]["russian_name"]}
                 <span>{key}</span>
@@ -49,7 +46,7 @@ export const Species = () => {
         </div>
         <div className="species_description">
           <h3>
-            {lang.name == "en"
+            {text.name == "en"
               ? about_species[species]["common_name"]
               : about_species[species]["russian_name"]}{" "}
             <span>{species}</span>{" "}
@@ -75,7 +72,7 @@ export const Species = () => {
                 about_species[species] &&
                 about_species[species]["locations"] && (
                   <>
-                    <h4>{lang["species"]["map"]}</h4>
+                    <h4>{text["species"]["map"]}</h4>
                     <MapboxSpecies
                       height={300}
                       locations={about_species[species]["locations"]}
@@ -87,7 +84,7 @@ export const Species = () => {
             <div className="species_map">
               {species && speciesByYears[species] && (
                 <div className="species_plot">
-                  <h4>{lang["species"]["chart"]}</h4>
+                  <h4>{text["species"]["chart"]}</h4>
                   <Plot
                     config={plotConfig}
                     data={[
@@ -128,7 +125,7 @@ export const Species = () => {
                 about_species[species] &&
                 about_species[species]["sound"] && (
                   <div className="species_sound">
-                    <h4>{lang["species"]["sound"]}</h4>
+                    <h4>{text["species"]["sound"]}</h4>
                     <FrameWrapper iframe={about_species[species]["sound"]} />
                   </div>
                 )}

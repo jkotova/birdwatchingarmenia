@@ -1,11 +1,16 @@
-import React from "react";
-import Plot from "react-plotly.js";
-import dataYear from "./../../static/data/year_hist_json.json";
-import dataMonth from "./../../static/data/month_hist_json.json";
-import dataSpeciesByYear from "./../../static/data/species_by_years_common.json";
-import { plotConfig, plotLayout, plotStyle } from "./../constants/plot.js";
+import * as React from "react";
 import { useSelector } from "react-redux";
+import Plot from "react-plotly.js";
 import parse from "html-react-parser";
+import {
+  plotColors,
+  plotConfig,
+  plotLayout,
+  plotStyle,
+} from "./../constants/plot.js";
+import { dataMonth, dataSpeciesByYear, dataYear } from "./../data";
+import DataArt from "./DataArt.js";
+import { PLOT_MONTH_CATEGORIES } from "./../constants";
 
 const year = {
   x: Object.keys(dataYear),
@@ -20,12 +25,6 @@ const month = {
 const species = {
   x: Object.keys(dataSpeciesByYear),
   y: Object.values(dataSpeciesByYear),
-};
-
-const plotData = {
-  marker: {
-    color: "rgba(163, 209, 198, .7)",
-  },
 };
 
 export function Dashboard() {
@@ -64,10 +63,17 @@ export function Dashboard() {
             </div>
           </div>
           {parse(text["about_birdwatching"]["p2"])}
-          {/* {parse(text["about_birdwatching"])} */}
         </div>
         <div className="column">
-          <h4>{text["charts"]["records"]}</h4>
+          <h4>{text["charts"]["feathers"]}</h4>
+          <DataArt />
+        </div>
+      </div>
+      {/* {parse(text["about_birdwatching"]["p6"])} */}
+      <h4>{text["charts"]["records"]}</h4>
+      <div className="row">
+        1
+        <div className="column">
           <Plot
             config={plotConfig}
             data={[
@@ -75,7 +81,7 @@ export function Dashboard() {
                 type: "bar",
                 x: year.x,
                 y: year.y,
-                ...plotData,
+                ...plotColors,
               },
             ]}
             layout={{
@@ -83,8 +89,8 @@ export function Dashboard() {
             }}
             style={plotStyle}
           />
-          {parse(text["about_birdwatching"]["p3"])}
         </div>
+        <div className="column">{parse(text["about_birdwatching"]["p3"])}</div>
       </div>
 
       <div className="row">
@@ -97,7 +103,7 @@ export function Dashboard() {
                 type: "bar",
                 x: species.x,
                 y: species.y,
-                ...plotData,
+                ...plotColors,
               },
             ]}
             layout={{
@@ -117,30 +123,17 @@ export function Dashboard() {
                 type: "bar",
                 x: month.x,
                 y: month.y,
-                ...plotData,
+                ...plotColors,
                 marker: {
                   color: "rgba(179,216, 168, .7)",
-                  line: plotData.marker.line,
+                  line: plotColors.marker.line,
                 },
               },
             ]}
             layout={{
               xaxis: {
                 categoryorder: "array",
-                categoryarray: [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "Jul",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
-                ],
+                categoryarray: [...PLOT_MONTH_CATEGORIES],
               },
               ...plotLayout,
             }}

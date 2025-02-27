@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import locations from "./../../static/data/locations.json";
-import species from "./../../static/data/about_species.json";
-import ru from "./../../static/data/ru.json";
-import en from "./../../static/data/en.json";
+import locations from "../../static/data/locations.json";
+import species from "../../static/data/about_species.json";
+import ru from "../../static/data/ru.json";
+import en from "../../static/data/en.json";
 
 const lang = {
   en: en,
@@ -21,7 +21,14 @@ const randomLocationId =
 
 const randomSpecies = randomKey(species);
 
-const initialState = {
+type State = {
+  location: String;
+  species: String;
+  year: Number;
+  lang: any;
+};
+
+const initialState: State = {
   location: randomLocationId,
   species: randomSpecies,
   year: 2020,

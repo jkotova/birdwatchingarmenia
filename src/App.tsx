@@ -1,70 +1,21 @@
 import "./App.css";
+import { useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import all_locations from "./../static/data/locations.json";
+import locations from "./../static/data/species_by_locations.json";
+import locations_top from "./../static/data/locations_by_popularity.json";
+import parse from "html-react-parser";
+import speciesByLocations from "./../static/data/species_by_locations.json";
 import { Dashboard } from "./modules/Dashboard";
 import { LuClock, LuSignalHigh, LuMail, LuGithub } from "react-icons/lu";
 import { Mapbox } from "./modules/Mapbox";
 import { Species } from "./modules/Species";
-import speciesByLocations from "./../static/data/species_by_locations.json";
-import { useSelector, useDispatch } from "react-redux";
-import { set_species, set_location, set_lang } from "./core/features.js";
-import locations from "./../static/data/species_by_locations.json";
-import locations_top from "./../static/data/locations_by_popularity.json";
-import all_locations from "./../static/data/locations.json";
-import { FrameWrapper } from "./modules/FrameWrapper.js";
-import { useEffect, useRef, useState } from "react";
-import parse from "html-react-parser";
 import { Tooltip } from "react-tooltip";
-
-const isMany = (amount) => {
-  if (amount > 50) {
-    return "good";
-  } else if (amount > 10) {
-    return "medium";
-  }
-  return "bad";
-};
-
-const isLongTime = (date) => {
-  const observation_date = new Date(date);
-  const today = new Date();
-  const difference = Math.floor(
-    Math.abs(today - observation_date) / (1000 * 60 * 60 * 24)
-  );
-  if (difference > 360) {
-    return "medium";
-  } else if (difference > 720) {
-    return "bad";
-  }
-  return "good";
-};
-
-const plotLayout = {
-  paper_bgcolor: "rgba(0,0,0,0)",
-  plot_bgcolor: "rgba(0,0,0,0)",
-  margin: {
-    t: 0,
-    b: 50,
-    l: 50,
-    r: 50,
-  },
-  title: {
-    font: {
-      //family: "serif",
-    },
-  },
-  font: {
-    family: "EB Garamond, serif",
-    size: 16,
-    color: "#7f7f7f",
-  },
-};
-
-const plotConfig = {
-  displayModeBar: false,
-};
-
-const plotStyle = {
-  width: "100%",
-};
+import {
+  getClassNameByBirdsAmount,
+  getClassNameByLastViewed,
+} from "./functions/index.js";
+import { set_species, set_location, set_lang } from "./core/features.ts";
 
 function App() {
   const state_location = useSelector((state) => state.general.location);
@@ -86,20 +37,20 @@ function App() {
     <div className="container">
       <div className="lang_container">
         <div
-          className={"lang " + (text["name"] == "ru" ? "lang__selected" : "")}
-          onClick={() => {
-            dispatch(set_lang("ru"));
-          }}
-        >
-          RU
-        </div>
-        <div
           className={"lang " + (text["name"] == "en" ? "lang__selected" : "")}
           onClick={() => {
             dispatch(set_lang("en"));
           }}
         >
           EN
+        </div>
+        <div
+          className={"lang " + (text["name"] == "ru" ? "lang__selected" : "")}
+          onClick={() => {
+            dispatch(set_lang("ru"));
+          }}
+        >
+          RU
         </div>
       </div>
       <div className="main">
@@ -109,15 +60,12 @@ function App() {
         </div>
 
         <h2>{text["title_location"]}</h2>
-        {/* <div className="description">{parse(text["about_locations"])}</div> */}
         <div className="locations">
           <div className="locations_top location_description">
-            {/* <h3 className="list_header">
-              {parse(text["title_top_locations"])}
-            </h3> */}
             {state_location &&
               locations_top.map((location_top) => (
                 <div
+                  key={location_top["locality_id"]}
                   className={
                     "locations_table_item" +
                     (location_top["locality_id"] == state_location
@@ -177,6 +125,7 @@ function App() {
                 {state_location &&
                   speciesByLocations[state_location].species.map((species) => (
                     <div
+                      key={species["scientific_name"]}
                       className={
                         "locations_table_item" +
                         (species["scientific_name"] == state_species
@@ -199,7 +148,9 @@ function App() {
                           data-tooltip-place="top"
                         >
                           <LuSignalHigh
-                            className={`icon-${isMany(species["amount"])}`}
+                            className={`icon-${getClassNameByBirdsAmount(
+                              species["amount"]
+                            )}`}
                           />
                         </span>
                         <span
@@ -211,7 +162,9 @@ function App() {
                           data-tooltip-place="top"
                         >
                           <LuClock
-                            className={`icon-${isLongTime(species["time"])}`}
+                            className={`icon-${getClassNameByLastViewed(
+                              species["time"]
+                            )}`}
                           />
                         </span>
                       </div>
@@ -232,15 +185,6 @@ function App() {
           id="tooltip_time"
           style={{ backgroundColor: "rgb(255, 255, 255)", color: "#222" }}
         />
-        {/* <h2>Распространение видов по локациям</h2>
-      <div className="species_in_locations">
-        <Plot
-          config={plotConfig}
-          data={data}
-          layout={plotLayout}
-          style={plotStyle}
-        />
-      </div> */}
         <h2>{text["title_species"]}</h2>
         <div ref={speciesRef}>
           <Species />
@@ -254,14 +198,22 @@ function App() {
 
           <div className="contacts">
             <p>
+              {text["source"]}:
+              <a
+                href="https://github.com/jkotova/birdwatchingarmenia"
+                target="_blank"
+              >
+                <span>
+                  <LuGithub />
+                </span>
+              </a>
+            </p>
+            <p></p>
+            <p>
+              {text["contacts"]}:
               <span>
                 <a href="mailto:kalipso@pretty-girl.ru">
                   <LuMail />
-                </a>
-              </span>
-              <span>
-                <a href="mailto:kalipso@pretty-girl.ru">
-                  <LuGithub />
                 </a>
               </span>
             </p>
